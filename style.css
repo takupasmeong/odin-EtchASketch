@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    height: 100vh;
+    gap: 3px;
+}
+
+.row {
+    display: flex;
+    flex: 1 1 0;
+    gap: 3px;
+    color: red;
+}
+
+.box {
+    background-color: yellow;
+    flex: 1 1 0;
+}
