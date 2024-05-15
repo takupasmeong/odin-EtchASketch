@@ -24,7 +24,19 @@ container.addEventListener("mouseover", (event) => {
         return;
     }
 
-    target.style.backgroundColor = "#BBDEFB";
+    let rgb = [];
+
+    for (let i = 0; i < 3; i++) {
+        let randNum = Math.floor(Math.random() * 256);
+        rgb.push(randNum);
+    }
+
+    if (target.style.backgroundColor == "") {
+        target.style.backgroundColor = `rgb(${rgb})`;
+    } else {
+        return;
+    }
+    
 });
 
 setGrid.addEventListener("click", () => {
