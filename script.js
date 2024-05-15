@@ -13,3 +13,14 @@ for (let i = 0; i < 16; i++) {
     
     container.appendChild(row);
 }
+
+container.addEventListener("mouseover", (event) => {
+    const target = event.target;
+
+    if (target == event.currentTarget || target.classList.contains("row")) {
+        return;
+    }
+
+    target.style.backgroundColor = "red";
+    target.style.color = "white";
+});
