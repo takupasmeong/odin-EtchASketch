@@ -1,23 +1,43 @@
 body {
     margin: 0;
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #461220;
+    min-height: 100%;
+}
+
+#setGrid {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 10px 0;
+    background-color: #fed0bb;
+    color: #461220;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    width: 100vh;
-    height: 100vh;
+    width: 500px;
+    height: 500px;
     gap: 3px;
+    border: 2px solid #344861;
+    background-color: #ffffff;
 }
 
 .row {
     display: flex;
+    width: 500px;
     flex: 1 1 0;
     gap: 3px;
-    color: red;
 }
 
 .box {
-    background-color: yellow;
+    /* border: 1px solid #DFE3EA; */
     flex: 1 1 0;
 }

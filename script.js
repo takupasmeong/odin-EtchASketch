@@ -1,18 +1,21 @@
 const container = document.querySelector(".container");
 
-let count = 1;
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement("div");
-    row.classList.add("row");
-    for (let j = 0; j < 16; j++) {
-        const box = document.createElement("div");
-        box.classList.add("box");
-        box.textContent = count++;
-        row.appendChild(box);
+// Button to set Grid size
+const setGrid = document.querySelector("#setGrid");
+
+document.addEventListener("DOMContentLoaded", () => {
+    for (let i = 0; i < 16; i++) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+        for (let j = 0; j < 16; j++) {
+            const box = document.createElement("div");
+            box.classList.add("box");
+            row.appendChild(box);
+        }
+        
+        container.appendChild(row);
     }
-    
-    container.appendChild(row);
-}
+});
 
 container.addEventListener("mouseover", (event) => {
     const target = event.target;
@@ -21,6 +24,41 @@ container.addEventListener("mouseover", (event) => {
         return;
     }
 
-    target.style.backgroundColor = "red";
-    target.style.color = "white";
+    target.style.backgroundColor = "#BBDEFB";
 });
+
+setGrid.addEventListener("click", () => {
+    clearGrid(container);
+    addGrid();
+});
+
+function addGrid() {
+    let numGrid = Number(prompt("Grid size?", "30"));
+
+    if (isNaN(numGrid)) {
+        alert("Not a number");
+        location.reload();
+        return;
+    } else if (numGrid > 100) {
+        alert("Too large!! Max is 100");
+        location.reload();
+        return;
+    }
+    for (let i = 0; i < numGrid; i++) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+        for (let j = 0; j < numGrid; j++) {
+            const box = document.createElement("div");
+            box.classList.add("box");
+            row.appendChild(box);
+        }
+        
+        container.appendChild(row);
+    }
+}
+
+function clearGrid(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
